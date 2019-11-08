@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-    <title>Expenses</title>
+    <title>I Miei Corsi</title>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,53 +10,58 @@
     <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
     <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
+    <link href="https://unpkg.com/ionicons@4.5.10-0/dist/css/ionicons.min.css" rel="stylesheet">
 </head>
 
 <body>
     <ion-app>
         <ion-header>
-            <ion-toolbar color="tertiary">
-                <ion-title>Expenses</ion-title>
+            <ion-toolbar color="primary">
+                <ion-title>I Miei Corsi</ion-title>
             </ion-toolbar>
         </ion-header>
 
         <ion-content>
             <ion-tabs>
-                <ion-tab tab="expense">
+                <ion-tab tab="input">
                     <ion-content>
                         <ion-item>
-                            <ion-label position="floating">Expense name</ion-label>
-                            <ion-input id="title"></ion-input>
+                            <ion-label position="floating">Nome corso</ion-label>
+                            <ion-input id="corso"></ion-input>
                         </ion-item>
 
                         <ion-item>
-                            <ion-label position="floating">Import</ion-label>
-                            <ion-input type="number" id="import"></ion-input>
+                            <ion-label>Rating</ion-label>
+                            <ion-range min="1" max="5" step="1" value="3" snaps color="warning" id="rating">
+                                <ion-icon slot="start" size="small" color="warning" name="heart-empty"></ion-icon>
+                                <ion-icon slot="end" color="warning" name="heart"></ion-icon>
+                            </ion-range>
                         </ion-item>
 
-                        <section end>
-                            <ion-button color="danger" fill="outline" id="delete">Delete</ion-button>
-                            <ion-button color="primary" fill="solid" id="add">Add</ion-button>
-                        </section>
+                        <div margin-vertical text-right>
+                            <ion-button id="add">
+                                Aggiungi
+                            </ion-button>
+                        </div>
                     </ion-content>
                 </ion-tab>
 
-                <ion-tab tab="history">
+                <ion-tab tab="corsi">
                     <ion-content>
-                        Totale: <div id="total">0</div>
-                        <ion-list id="expenseList">
+                        <ion-list id="list">
 
                         </ion-list>
                     </ion-content>
                 </ion-tab>
 
                 <ion-tab-bar slot="bottom">
-                    <ion-tab-button tab="expense">
-                        <ion-label>Expense</ion-label>
-                        <ion-icon name="cart"></ion-icon>
+                    <ion-tab-button tab="input">
+                        <ion-label>Valuta</ion-label>
+                        <ion-icon name="book"></ion-icon>
                     </ion-tab-button>
-                    <ion-tab-button tab="history">
-                        <ion-label>History</ion-label>
+                    <ion-tab-button tab="corsi" id="corsi">
+                        <ion-label>Corsi</ion-label>
+                        <ion-badge id="counter" color="danger">0</ion-badge>
                         <ion-icon name="list-box"></ion-icon>
                     </ion-tab-button>
                 </ion-tab-bar>
