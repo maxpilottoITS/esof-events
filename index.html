@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
+    <title>Expenses</title>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Document</title>
-
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.esm.js"></script>
     <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core/dist/ionic/ionic.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core/css/ionic.bundle.css" />
@@ -14,10 +14,57 @@
 
 <body>
     <ion-app>
+        <ion-header>
+            <ion-toolbar color="tertiary">
+                <ion-title>Expenses</ion-title>
+            </ion-toolbar>
+        </ion-header>
+
         <ion-content>
-            
+            <ion-tabs>
+                <ion-tab tab="expense">
+                    <ion-content>
+                        <ion-item>
+                            <ion-label position="floating">Expense name</ion-label>
+                            <ion-input id="title"></ion-input>
+                        </ion-item>
+
+                        <ion-item>
+                            <ion-label position="floating">Import</ion-label>
+                            <ion-input type="number" id="import"></ion-input>
+                        </ion-item>
+
+                        <section end>
+                            <ion-button color="danger" fill="outline" id="delete">Delete</ion-button>
+                            <ion-button color="primary" fill="solid" id="add">Add</ion-button>
+                        </section>
+                    </ion-content>
+                </ion-tab>
+
+                <ion-tab tab="history">
+                    <ion-content>
+                        Totale: <div id="total">0</div>
+                        <ion-list id="expenseList">
+
+                        </ion-list>
+                    </ion-content>
+                </ion-tab>
+
+                <ion-tab-bar slot="bottom">
+                    <ion-tab-button tab="expense">
+                        <ion-label>Expense</ion-label>
+                        <ion-icon name="cart"></ion-icon>
+                    </ion-tab-button>
+                    <ion-tab-button tab="history">
+                        <ion-label>History</ion-label>
+                        <ion-icon name="list-box"></ion-icon>
+                    </ion-tab-button>
+                </ion-tab-bar>
+            </ion-tabs>
         </ion-content>
     </ion-app>
+
+    <script src="index.js"></script>
 </body>
 
 </html>
